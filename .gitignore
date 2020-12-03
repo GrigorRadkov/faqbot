@@ -1,0 +1,12 @@
+/intents
+/cfg
+/__pycache__
+*cfg
+*pyc
+*.tmp
+*.log
+*.lock
+Thumbs.db
+*.meta
+*.index
+*.pickle
