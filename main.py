@@ -6,7 +6,6 @@ from nltk.stem.lancaster import LancasterStemmer
 stemmer = LancasterStemmer()
 
 import numpy as np
-import tflearn as tfl
 import tensorflow as tf
 import random
 import json
@@ -62,20 +61,25 @@ async def on_message(message):
         await message.channel.send("{}".format(message.author.mention) + ' ' + response, tts = True)
 
     await client.process_commands(message)
-
-with open("D:\Ot uni\Diplomna\FAQBot\intents\intents.json") as file:
-    data = json.load(file)
+try:
+    with open("D:\Ot uni\Diplomna\FAQBot\intents\intents.json") as file:
+        data = json.load(file)
+except:
+    print("Error loading intents file")
 
 try:
     with open("D:\Ot uni\Diplomna\FAQBot\cfg\data.pickle", "rb") as f:
-        words, labels, training, output = pickle.load(f)
+        words, labels, training, output = pickle.load(f)        
 except:
     preprocess(data)
-
+    print('1')
+    with open("D:\Ot uni\Diplomna\FAQBot\cfg\data.pickle", "rb") as f:
+        words, labels, training, output = pickle.load(f)
 try:
     model = load_model(training, output)
+    print('2')
 except:
     model = create_model(training, output)
-
+    print('3')
 
 client.run('NzA3NjMzMjY5NzU1MDg0ODEy.XrLo1g._Vhnt903TOVFPiEEpBfVyjx094I')
