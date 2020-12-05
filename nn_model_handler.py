@@ -1,35 +1,35 @@
 import tensorflow as tf
-import tflearn as tfl
+from tensorflow import keras
 
 def create_model(training, output):
 
-    tf.reset_default_graph()
+    net = keras.Sequential([
+        keras.layers.Dense(len(training[0])),
+        keras.layers.Dense(8, activation='relu'),
+        keras.layers.Dense(8, activation='relu'),
+        keras.layers.Dense(len(output[0]), activation='softmax') 
+    ])
 
-    net = tfl.input_data(shape = [None , len(training[0])])
-    net = tfl.fully_connected(net, 8)
-    net = tfl.fully_connected(net, 8)
-    net = tfl.fully_connected(net, len(output[0]), activation="softmax")
-    net = tfl.regression(net)
+    net.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
 
-    model = tfl.DNN(net)
+    net.fit(training, output, batch_size = 8, epochs = 1000)
+    net.save("D:\Ot uni\Diplomna\FAQBot\cfg\model.tf", overwrite=False)
 
-    model.fit(training, output, n_epoch = 1000, batch_size = 8, show_metric= True)
-    model.save("D:\Ot uni\Diplomna\FAQBot\cfg\model.tflearn")
     print("Model saved")
-    return model
+
+    loss, accuracy = net.evaluate(training, output)
+    
+    print(" Loss = ", loss)
+    print(" Accuracy = ", accuracy)
+    print(net.summary())
+
+    return net
 
 def load_model(training, output):
-
-    tf.reset_default_graph()
-
-    net = tfl.input_data(shape = [None , len(training[0])])
-    net = tfl.fully_connected(net, 8)
-    net = tfl.fully_connected(net, 8)
-    net = tfl.fully_connected(net, len(output[0]), activation="softmax")
-    net = tfl.regression(net)
     
-    model = tfl.DNN(net)
-
-    model.load("D:\Ot uni\Diplomna\FAQBot\cfg\model.tflearn")
+    net = keras.models.load_model("D:\Ot uni\Diplomna\FAQBot\cfg\model.tf")
+    
     print("Model loaded")
-    return model
+    print(net.summary())
+
+    return net

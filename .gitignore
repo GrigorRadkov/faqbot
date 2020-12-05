@@ -10,3 +10,4 @@ Thumbs.db
 *.meta
 *.index
 *.pickle
+.vscode/settings.json
