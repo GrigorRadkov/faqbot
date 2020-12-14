@@ -16,6 +16,9 @@ from nn_model_handler import *
 from respond import *
 from add_to_json import *
 
+intents = r"D:\Projects\faqbot\intents\intents.json"
+pickles = r"D:\Projects\faqbot\cfg\data.pickle"
+
 client = commands.Bot(command_prefix = '!')
 
 @client.event
@@ -62,18 +65,18 @@ async def on_message(message):
 
     await client.process_commands(message)
 try:
-    with open("D:\Ot uni\Diplomna\FAQBot\intents\intents.json") as file:
+    with open(intents) as file:
         data = json.load(file)
 except:
     print("Error loading intents file")
 
 try:
-    with open("D:\Ot uni\Diplomna\FAQBot\cfg\data.pickle", "rb") as f:
+    with open(pickles, "rb") as f:
         words, labels, training, output = pickle.load(f)        
 except:
     preprocess(data)
     print('1')
-    with open("D:\Ot uni\Diplomna\FAQBot\cfg\data.pickle", "rb") as f:
+    with open(pickles, "rb") as f:
         words, labels, training, output = pickle.load(f)
 try:
     model = load_model(training, output)
