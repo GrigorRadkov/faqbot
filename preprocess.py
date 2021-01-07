@@ -2,7 +2,9 @@ import pickle
 import json
 import nltk
 from nltk.stem.lancaster import LancasterStemmer
+from nltk.stem.wordnet import WordNetLemmatizer
 stemmer = LancasterStemmer()
+lemmatizer = WordNetLemmatizer()
 import numpy as np
 
 pickles = r"D:\Projects\faqbot\cfg\data.pickle"
@@ -21,11 +23,10 @@ def preprocess(data):
             words.extend(wrds)
             docs_x.append(wrds)
             docs_y.append(intent["tag"])
-
         if intent["tag"] not in labels:
             labels.append(intent["tag"])
 
-    words = [stemmer.stem(w) for w in words if w != "?"]
+    words = [lemmatizer.lemmatize(w) for w in words if w != "?"]
     words = sorted(list(set(words)))
 
     labels = sorted(labels)
@@ -38,6 +39,7 @@ def preprocess(data):
     for x, doc in enumerate(docs_x):
         bag = []
 
+        #wrds = [lemmatizer.lemmatize(w) for w in doc]
         wrds = [stemmer.stem(w) for w in doc]
 
         for w in words:

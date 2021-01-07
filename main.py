@@ -1,9 +1,6 @@
 import discord
 from discord.ext import commands
-
-import nltk
-from nltk.stem.lancaster import LancasterStemmer
-stemmer = LancasterStemmer()
+import asyncio
 
 import numpy as np
 import tensorflow as tf
@@ -13,8 +10,10 @@ import pickle
 
 from preprocess import *
 from nn_model_handler import *
-from respond import *
+from intent_predictor import *
 from add_to_json import *
+from response_fetcher import *
+from discord_token import token
 
 intents = r"D:\Projects\faqbot\intents\intents.json"
 pickles = r"D:\Projects\faqbot\cfg\data.pickle"
@@ -58,9 +57,12 @@ async def on_message(message):
 
         print(query)
 
-        #print all tags so user can choose from a list instead of typing an intent every time
-        response = predict_intent(query, model, words, labels, data) 
+        probability, tag = predict_intent(query, model, words, labels, data)
+        response = fetch_response(probability, tag, data)
         
+        async with message.channel.typing():
+            await asyncio.sleep(random.randint(1,3))
+
         await message.channel.send("{}".format(message.author.mention) + ' ' + response, tts = True)
 
     await client.process_commands(message)
@@ -72,7 +74,8 @@ except:
 
 try:
     with open(pickles, "rb") as f:
-        words, labels, training, output = pickle.load(f)        
+        words, labels, training, output = pickle.load(f)      
+        print(training)  
 except:
     preprocess(data)
     print('1')
@@ -85,4 +88,4 @@ except:
     model = create_model(training, output)
     print('3')
 
-client.run('NzA3NjMzMjY5NzU1MDg0ODEy.XrLo1g._Vhnt903TOVFPiEEpBfVyjx094I')
+client.run(token)

@@ -11,3 +11,5 @@ Thumbs.db
 *.index
 *.pickle
 .vscode/settings.json
+discord_token.py
+main-flask.py

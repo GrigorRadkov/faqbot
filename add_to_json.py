@@ -4,7 +4,7 @@ import json
 def add_to_json(tag, question, response):
     
     try:
-        with open('D:\Ot uni\Diplomna\FAQBot\intents\intents.json', 'r+') as f:
+        with open(r'D:\Ot uni\Diplomna\FAQBot\intents\intents.json', 'r+') as f:
             data = json.load(f)
 
             for intent in data['intents']:
