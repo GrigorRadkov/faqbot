@@ -26,7 +26,9 @@ def preprocess(data):
         if intent["tag"] not in labels:
             labels.append(intent["tag"])
 
+    #ords = [stemmer.stem(w) for w in words if w != "?"]
     words = [lemmatizer.lemmatize(w) for w in words if w != "?"]
+
     words = sorted(list(set(words)))
 
     labels = sorted(labels)
@@ -39,8 +41,8 @@ def preprocess(data):
     for x, doc in enumerate(docs_x):
         bag = []
 
-        #wrds = [lemmatizer.lemmatize(w) for w in doc]
-        wrds = [stemmer.stem(w) for w in doc]
+        wrds = [lemmatizer.lemmatize(w) for w in doc]
+        #wrds = [stemmer.stem(w) for w in doc]
 
         for w in words:
             if w in wrds:
