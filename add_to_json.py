@@ -1,10 +1,14 @@
 import json
+import os
 
+#Necessary paths
+curr_dir = os.getcwd()
+intents = "/intents/intents.json"
 
 def add_to_json(tag, question, response):
     
     try:
-        with open(r'D:\Ot uni\Diplomna\FAQBot\intents\intents.json', 'r+') as f:
+        with open(curr_dir + intents, 'r+') as f:
             data = json.load(f)
 
             for intent in data['intents']:

@@ -1,8 +1,14 @@
+import os
 import tensorflow as tf
 from tensorflow import keras
 
-models = r"D:\Projects\faqbot\cfg\model.tf"
+#Necessary paths
+curr_dir = os.getcwd()
+models = "\cfg\model.tf"
 
+#Creates a keras deep neural network with ReLU functions in the hidden layers and a softmax at the end. 
+#Fits the network by using the training and output data from the preprocessing phase. 
+#Saves the model for later use in a model.tf folder. For more information on how to tinker with this please refer to the Tensorflow keras documentation.
 def create_model(training, output):
 
     net = keras.Sequential([
@@ -15,7 +21,7 @@ def create_model(training, output):
     net.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
 
     net.fit(training, output, batch_size = 8, epochs = 1000)
-    net.save(models, overwrite=False)
+    net.save(curr_dir + models, overwrite=False)
 
     print("Model saved")
 
@@ -27,9 +33,10 @@ def create_model(training, output):
 
     return net
 
+#Loads a preexisting model
 def load_model(training, output):
     
-    net = keras.models.load_model(models)
+    net = keras.models.load_model(curr_dir + models)
     
     print("Model loaded")
     print(net.summary())
