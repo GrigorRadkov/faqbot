@@ -19,6 +19,7 @@ from discord_token import token
 curr_dir = os.getcwd()
 intents = "/intents/intents.json"
 pickles = "/cfg/data.pickle"
+token_file = "/discord_token.py"
 
 client = commands.Bot(command_prefix = '!')
 
@@ -67,8 +68,11 @@ async def on_message(message):
 
     await client.process_commands(message)
 
-if not os.path.exists(pickles):
+if not os.path.exists(curr_dir + pickles):
     open(curr_dir + pickles, 'w')
+
+if not os.path.exists(curr_dir + token_file):
+    open(curr_dir + token_file, 'w')
 
 try:
     with open(curr_dir + intents) as file:
@@ -89,4 +93,7 @@ try:
 except:
     model = create_model(training, output)
 
-client.run(token)
+try:
+    client.run(token)
+except:
+    print("Discord token could not be retrieved. Please open the discord_token.py file in the chatbot's folder and write the following \ntoken = 'tokencode', where 'tokencode' refers to the discord token for your bot, found on the discord developer website: https://discord.com/developers/applications")

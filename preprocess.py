@@ -1,16 +1,17 @@
 import pickle
 import json
 import nltk
+import os
 from nltk.stem.lancaster import LancasterStemmer
 from nltk.stem.wordnet import WordNetLemmatizer
 stemmer = LancasterStemmer()
 lemmatizer = WordNetLemmatizer()
 import numpy as np
 
-pickles = r"D:\Projects\faqbot\cfg\data.pickle"
+curr_dir = os.getcwd()
+pickles = "/cfg/data.pickle"
 
 def preprocess(data):
-    #check whether theres new data added to the database, if so retrain the system!
 
     words = []
     docs_x = []
@@ -26,8 +27,8 @@ def preprocess(data):
         if intent["tag"] not in labels:
             labels.append(intent["tag"])
 
-    #ords = [stemmer.stem(w) for w in words if w != "?"]
-    words = [lemmatizer.lemmatize(w) for w in words if w != "?"]
+    #words = [stemmer.stem(w.lower()) for w in words if w != "?"]
+    words = [lemmatizer.lemmatize(w.lower()) for w in words if w != "?"]
 
     words = sorted(list(set(words)))
 
@@ -41,8 +42,8 @@ def preprocess(data):
     for x, doc in enumerate(docs_x):
         bag = []
 
-        wrds = [lemmatizer.lemmatize(w) for w in doc]
-        #wrds = [stemmer.stem(w) for w in doc]
+        wrds = [lemmatizer.lemmatize(w.lower()) for w in doc]
+        #wrds = [stemmer.stem(w.lower()) for w in doc]
 
         for w in words:
             if w in wrds:
@@ -59,5 +60,5 @@ def preprocess(data):
     training = np.array(training)
     output = np.array(output)
     
-    with open(pickles, "wb") as f:
+    with open(curr_dir + pickles, "wb") as f:
         pickle.dump((words, labels, training, output), f)

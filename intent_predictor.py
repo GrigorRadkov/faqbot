@@ -11,7 +11,6 @@ def predict_intent(query, model, words, labels, data):
         probabilities = model.predict(padded)
         best_probability_index = np.argmax(probabilities)
         best_probability = probabilities[0][best_probability_index]
-
         tag = labels[best_probability_index]
 
         return best_probability, tag
