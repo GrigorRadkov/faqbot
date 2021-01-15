@@ -70,7 +70,7 @@ async def on_message(message):
         probability, tag = predict_intent(query, model, words, labels, data)
         response = fetch_response(probability, tag, data)
         
-        #Pseudo-random delay. Makes the chatbot look like it's typing, which looks more natural, right?
+        #Pseudo-random delay. Makes the chatbot look like it's typing, which looks more natural, right? Remove this function if you do not want delay.
         async with message.channel.typing():
             await asyncio.sleep(random.randint(1,3))
 
