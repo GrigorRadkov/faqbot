@@ -12,4 +12,6 @@ Thumbs.db
 *.pickle
 .vscode/settings.json
 discord_token.py
+testLemm.py
+testStemm.py
 main-flask.py
