@@ -20,7 +20,7 @@ from discord_token import token
 curr_dir = os.getcwd()
 intents = "/intents/intents.json"
 pickles = "/cfg/data.pickle"
-token_file = "/discord_token.py"
+token_file = "/src/discord_token.py"
 
 #The prefix that users need to use when typing commands in order for the bot to understand them.
 client = commands.Bot(command_prefix = '!')
