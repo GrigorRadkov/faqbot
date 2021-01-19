@@ -1,8 +1,8 @@
 import numpy as np
 import tensorflow as tf
 from tensorflow import keras
-from tensorflow.keras.preprocessing.sequence import *
-from vectorize import *
+from tensorflow.keras.preprocessing.sequence import pad_sequences
+from vectorize import user_input_to_bag_of_words
 
 def predict_intent(query, model, words, labels, data):
 

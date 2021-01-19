@@ -1,20 +1,20 @@
-import os
-import discord
-from discord.ext import commands
 import asyncio
+import json
+import os
+import pickle
+import random
 
+import discord
 import numpy as np
 import tensorflow as tf
-import random
-import json
-import pickle
+from discord.ext import commands
 
-from preprocess import *
-from nn_model_handler import *
-from intent_predictor import *
-from add_to_json import *
-from response_fetcher import *
+from add_to_json import add_to_json
 from discord_token import token
+from intent_predictor import predict_intent
+from nn_model_handler import create_model, load_model
+from preprocess import preprocess
+from response_fetcher import fetch_response
 
 #Paths used for creation and access of files
 curr_dir = os.getcwd()
