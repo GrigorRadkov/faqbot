@@ -1,0 +1,321 @@
+{
+  "intents": [
+    {
+      "tag": "greeting",
+      "patterns": [
+        "Hi",
+        "Is anyone there?",
+        "Hello",
+        "Good day",
+        "Good to see you again"
+      ],
+      "responses": [
+        "Hello!",
+        "Hey, Good to see you again!",
+        "Hi there, how can I help?",
+        "Hi, nice to be talking again."
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "greeting2",
+      "patterns": [
+        "How are you",
+        "How is it going?",
+        "How is it hanging?"
+      ],
+      "responses": [
+        "Hey hey. Im good.",
+        "Nothing man."
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "greeting3",
+      "patterns": [
+        "Whats up",
+        "What are you up to?",
+        "What are you doing?"
+      ],
+      "responses": [
+        "Nothing man.",
+        "The usual.",
+        "Just chillin'."
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "goodbye",
+      "patterns": [
+        "Cya",
+        "See you later",
+        "Goodbye",
+        "I am leaving",
+        "Have a Good day",
+        "I have to go",
+        "I'm leaving",
+        "Have to go",
+        "Have to get going",
+        "I have something to do"
+      ],
+      "responses": [
+        "Sad to see you go :(",
+        "Talk to you later",
+        "Goodbye!",
+        "See you later!",
+        "Catch you later",
+        "Ok, have a nice day"
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "age",
+      "patterns": [
+        "How old",
+        "What is your age",
+        "How old are you",
+        "Age?",
+        "Are you 10 years old?"
+      ],
+      "responses": [
+        "I am 1 year old!",
+        "Around 1 year old",
+        "Technically 1-ish",
+        "None of your business.." 
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "name",
+      "patterns": [
+        "What is your name",
+        "What should I call you",
+        "Whats your name?",
+        "How can I refer to you?",
+        "You have a name?",
+        "Name?"
+      ],
+      "responses": [
+        "I dont care. Make one up.",
+        "You can call me anything.",
+        "Whatever you want my name to be.",
+        "My name is over there dude..",
+        "Some call me Jim.",
+        "Some call me Carrey.",
+        "Bond... James Bond"
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "liverpool",
+      "patterns": [
+        "What do you think about Liverpool?",
+        "Aren't Liverpool amazing?",
+        "You a Liverpool fan?",
+        "Who's your favourite Liverpool player?"
+      ],
+      "responses": [
+        "Im personally a fan of Everton"
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "hours",
+      "patterns": [
+        "When are you active",
+        "What are your hours",
+        "Hours of operation"
+      ],
+      "responses": [
+        "I should be working non-stop. If the host isn't dead for some reason."
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "library card issuance",
+      "patterns": [
+        "How can I get a library card?",
+        "Can I get a library card?",
+        "Can someone issue me a library card?",
+        "I need a library card",
+        "How can I get a card for the library?",
+        "Can I get a card for the library?",
+        "Can someone issue me a card for the library?",
+        "I need a card for the library?"
+      ],
+      "responses": [
+        "You can issue a card by filling in a form. This is done exclusively electronically at the following link - HERE. You can't do it at the library."
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "book return deadlines",
+      "patterns": [
+        "I borrowed a book. When should I return it?",
+        "When should I return the book I borrowed?",
+        "What's the deadline for returning a book?",
+        "Is there a deadline for returning a book?",
+        "I rented a book. How long can I keep it?",
+        "How long can I keep the book I rented?",
+        "I need to check the deadline for my book",
+        "What is the deadline for my book"
+      ],
+      "responses": [
+        "You can check HERE. Not all books are in the electronic system. Some are written on a physical form. The librarian will tell you when you should return them. In most cases, books written on a form are returned after taking the exam."
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "chatbot creator",
+      "patterns": [
+        "Who's creation are you?",
+        "Who created you?",
+        "I want to talk to your creator",
+        "I want to talk to your master",
+        "Who made you?",
+        "By whom were you created?",
+        "By whom were you made"
+      ],
+      "responses": [
+        "An idiot. :)",
+        "A student from FDIBA, TU-Sofia",
+        "A guy called Grigor. Check his soundcloud: https://soundcloud.com/radicitus",
+        "A csgo pro."
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "library working hours",
+      "patterns": [
+        "When does the library work?",
+        "Library working hours?",
+        "When can I visit the library?",
+        "Can I visit the library now?",
+        "I need to visit the library",
+        "I want to go to the library?",
+        "What time does the library work?",
+        "When is the library open?"
+      ],
+      "responses": [
+        "Every weekday: 09:00 - 12:00 and 13:00- 17:00. \n   The lunch break is from 12:00 - 13:00"
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "librarian contact",
+      "patterns": [
+        "How can I contact the librarian?",
+        "Can I get the librarian's contact information?",
+        "Can I get the librarian's contact?",
+        "I need the librarian's contact?",
+        "I need to contact the librarian",
+        "Is there a way to contact the librarian?"
+      ],
+      "responses": [
+        "You can write to the librarian per email. Here sample.email@fdiba.tu-sofia.bg"
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "book fine",
+      "patterns": [
+        "How much can I get fined for a book I have not returned?",
+        "I missed a deadline for returning a book. How much can I be fined?",
+        "Is there a fine for not returning a book?",
+        "How much is the fine for not returning a book?",
+        "What is the fine for not returning a book?",
+        "I could not return a book in time. Is there a fine?"
+      ],
+      "responses": [
+        "The fine is 0,1 bgn per day over the deadline."
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "it team contact",
+      "patterns": [
+        "I need to contact the IT team",
+        "How can I contact the IT team?",
+        "Where can I talk to the IT team?",
+        "Can I have the IT team's contact information?",
+        "I need help from IT",
+        "Can I get help from IT?"
+      ],
+      "responses": [
+        "For Information and inquiries: sample.email@fdiba.tu-sofia.bg \n For Technical support and service requests: servicedesk@fdiba.tu-sofia.bg"
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "IT team working hours",
+      "patterns": [
+        "When does the IT team work?",
+        "When does IT work?",
+        "IT working hours?",
+        "When can I visit the IT?",
+        "Can I visit the IT team now?",
+        "I need to visit the IT team",
+        "I want to go to the IT team?",
+        "What time does the IT office work?",
+        "When is the IT office open?"
+      ],
+      "responses": [
+        "Every weekday: 12:00 - 12:30"
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "username",
+      "patterns": [
+        "What is my username",
+        "What's my username?",
+        "I do not know my username",
+        "I forgot my username",
+        "What was my username",
+        "I do not remember my username"
+      ],
+      "responses": [
+        "Your username is your faculty number / FDIBA ID"
+      ],
+      "context_set": ""
+    }, 
+    {
+      "tag": "first login",
+      "patterns": [
+        "I am a new student. How do I login?",
+        "I just registered at this university. How do I login?",
+        "Im a new student. What are my credentials",
+        "I just registered at this university. What are my credentials?",
+        "What are my credentials?",
+        "What is my password?",
+        "I don't know my password.",
+        "I am new. What is my password?",
+        "I just registered at this university. What is my password?",
+        "I need to login",
+        "How do I login?",
+        "How can I login?"
+      ],
+      "responses": [
+        "The initial password is written in an attached sheet on the first page of the student's book. It must be replaced the first time you log in! Please don't forget your password, you will need it all the time! \n Minimum number of symbols = 6 \n Permissible number of incorrect login attempts with an FDIBA ID (within 15 minutes): 7 \n Account is locked when the maximum number of wrong attempts is reached: in 15 minutes"
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "locked account login",
+      "patterns": [
+        "I locked myself out of my account",
+        "I can not login in my account",
+        "I can't login in my account",
+        "I do not know my password",
+        "I can not remember my password",
+        "I do not know my password",
+        "I don't know my password.",
+        "I can't remember my password"
+      ],
+      "responses": [
+        "That is unfortunate. Please contact the IT team and be more careful next time. :)"
+      ],
+      "context_set": ""
+    }
+  ]
+}

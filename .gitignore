@@ -1,4 +1,3 @@
-/intents
 /cfg
 /__pycache__
 *cfg
@@ -13,3 +12,4 @@ Thumbs.db
 .vscode/settings.json
 discord_token.py
 main-flask.py
+*.txt

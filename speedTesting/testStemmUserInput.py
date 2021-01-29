@@ -18,4 +18,4 @@ words.extend(temp_words)
 
 print(timeit.timeit("""
 tmp = [stemmer.stem(w) for w in words]
-""", setup = setup2, number = 1))
+""", setup = setup2, number = 10000))

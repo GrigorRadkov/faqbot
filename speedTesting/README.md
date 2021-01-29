@@ -1,2 +1,2 @@
-#This folder contains the tests done to measure the speed of both stemming and lemmatization.
-#This was done with the idea to see how much implementing lemmatization will slow down the preprocessing of data as well as the response time of the system when queried.
+#This folder contains the timeit tests for the lemmatization and stemming algorithms as well as for the different parameter options for the neural network.
+#This was done with the idea to see the training/ execution time of the programs with these different setups.

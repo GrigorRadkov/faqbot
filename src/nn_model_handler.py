@@ -1,6 +1,7 @@
 import os
 import tensorflow as tf
 from tensorflow import keras
+import matplotlib.pyplot as plt
 
 #Necessary paths
 curr_dir = os.getcwd()
@@ -12,17 +13,16 @@ models = "\cfg\model.tf"
 def create_model(training, output):
 
     net = keras.Sequential([
-        keras.layers.Dense(len(training[0])),
-        keras.layers.Dense(8, activation='relu'),
-        keras.layers.Dense(8, activation='relu'),
-        keras.layers.Dense(len(output[0]), activation='softmax') 
+        keras.layers.Dense(len(training[0]), kernel_initializer='he_uniform'),
+        keras.layers.Dense(64, kernel_initializer='he_uniform', activation='relu'),
+        keras.layers.Dense(32, kernel_initializer='he_uniform', activation='relu'),
+        keras.layers.Dense(len(output[0]), kernel_initializer='he_uniform', activation='softmax') 
     ])
 
     net.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
 
-    net.fit(training, output, batch_size = 8, epochs = 1000)
-    net.save(curr_dir + models, overwrite=False)
-
+    hist = net.fit(training, output, epochs = 200)
+    net.save(curr_dir + models, overwrite = False)
     print("Model saved")
 
     loss, accuracy = net.evaluate(training, output)
@@ -31,6 +31,11 @@ def create_model(training, output):
     print(" Accuracy = ", accuracy)
     print(net.summary())
 
+    plt.plot(hist.history['accuracy'],label='training set accuracy')
+    plt.plot(hist.history['loss'],label='training set loss')
+    plt.legend()
+    plt.show()
+    
     return net
 
 #Loads a preexisting model

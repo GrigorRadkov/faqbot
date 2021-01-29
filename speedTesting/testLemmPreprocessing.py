@@ -2,6 +2,8 @@ import timeit
 
 setup = """import os
 import nltk
+import sys
+sys.path.insert(1, r"D:/Projects/faqbot/src")
 from nltk.stem.wordnet import WordNetLemmatizer
 from wordnet_pos_converter import get_wordnet_pos
 
