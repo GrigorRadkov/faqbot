@@ -5,9 +5,9 @@ def fetch_response(probability, tag, data):
             #Probability threshold. If the model isn't confident above 70%, that the given intent is the correct one, then it will send a Ambiguity message.
             if  probability > 0.7: 
                 #Finds the tag and returns a prewritten response from the knowledge base.
-                for tg in data["intents"]:
-                    if tg['tag'] == tag:
-                        responses = tg['responses']
+                for intent_tag in data["intents"]:
+                    if intent_tag['tag'] == tag:
+                        responses = intent_tag['responses']
                 return (random.choice(responses))
 
             else:

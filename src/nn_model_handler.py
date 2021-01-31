@@ -31,6 +31,7 @@ def create_model(training, output):
     print(" Accuracy = ", accuracy)
     print(net.summary())
 
+    #Plot to visualize loss and accuracy throughout training epochs.
     plt.plot(hist.history['accuracy'],label='training set accuracy')
     plt.plot(hist.history['loss'],label='training set loss')
     plt.legend()
