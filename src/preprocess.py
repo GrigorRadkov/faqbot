@@ -62,8 +62,8 @@ def preprocess(data):
 
         #Creates the vector for a sentence by appending a 1, where a word appears in both words and temp_lemmas lists, and a 0 otherwise.
         #This means a single sentence's vector is of the same length as the words list.
-        for w in words:
-            if w in temp_lemmas:
+        for word in words:
+            if word in temp_lemmas:
                 bag_of_words.append(1)
             else:
                 bag_of_words.append(0)
