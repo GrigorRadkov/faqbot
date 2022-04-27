@@ -61,12 +61,10 @@ async def add(ctx, tag, question, response):
 #Standard discord on_message function. Refer to the discord API for information.
 @client.event
 async def on_message(message):
-
     #Bot talks only if mentioned
-    if  message.content.find("<@!707633269755084812>") != -1 and message.author != client.user:
+    if  message.content.find("707633269755084812") != -1 and message.author != client.user:
 
         query = message.content
-
         probability, tag = predict_intent(query, model, words, labels, data)
         response = fetch_response(probability, tag, data)
         
